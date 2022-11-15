@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:43:16 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 21:03:20 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/15 22:18:17 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	err_msg(char *msg)
 	while (msg[len])
 		len++;
 	write(2, msg, len);
-	write(2, "\n", 1);
+	write(2, "\n", 2);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:38:09 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 22:08:33 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/15 22:19:29 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (start(&ph))
 		return (1);
+	printf("\x1b[0m");
 	ph_mutex_destroy(&ph);
 	all_free(&ph);
 	return (0);
