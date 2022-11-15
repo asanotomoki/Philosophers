@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:38:09 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 22:50:39 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/15 22:59:35 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static int	check_data(t_ph *ph)
 		return (err_msg(ARG_EAT));
 	if (ph->t_sleep < 60)
 		return (err_msg(ARG_SLEEP));
+	if (ph->is_must_eat && ph->must_eat <= 0)
+		return (err_msg(ARG_MUST));
 	return (0);
 }
 
