@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:16:10 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 22:33:57 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/15 22:38:06 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ void	*routine(void *ph_man)
 			break ;
 		put_msg(man, THINK, GRAY);
 	}
+	printf("\x1b[0m");
 	return (NULL);
 }

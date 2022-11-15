@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 16:58:32 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 22:23:39 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/15 22:41:49 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ph_solo(t_man *man)
 {
 	printf("\x1b[%dm%zu %d %s\n", GREEN, get_time(), man->position + 1, FORK);
 	ph_wait(man->t_die);
-	printf("\x1b[%dm%zu %d %s\n", RED, get_time(), man->position + 1, DIE);
+	printf("\x1b[%dm%zu %d %s\x1b[0m\n", RED, get_time(), man->position + 1, DIE);
 	return (0);
 }
 
@@ -42,7 +42,8 @@ int	put_msg(t_man *man, char *msg, int color)
 {
 	pthread_mutex_lock(man->died);
 	if (!(*man->is_finish))
-		printf("\x1b[%dm%zu %d %s\n", color, get_time(), man->position + 1, msg);
+		printf("\x1b[%dm%zu %d %s\x1b[0m\n", \
+		color, get_time(), man->position + 1, msg);
 	pthread_mutex_unlock(man->died);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:08:38 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 22:34:04 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/15 22:42:01 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static int	check_finish(t_ph *ph, t_man *man, ssize_t time)
 	else if (time >= man->last_eat)
 	{
 		if (!ph->is_finish)
-			printf("\x1b[%dm%zu %d %s\n", RED, time, man->position + 1, DIE);
+			printf("\x1b[%dm%zu %d %s\x1b[0m\n", \
+			RED, time, man->position + 1, DIE);
 		ph->is_finish = true;
 		pthread_mutex_unlock(&ph->died);
 		return (1);
