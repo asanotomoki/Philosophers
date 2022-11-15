@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:38:09 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 20:50:26 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/15 21:54:46 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static int	ph_mutex_destroy(t_ph *ph)
 	int	i;
 
 	i = -1;
-	if (ph->ph == 1)
-		return (0);
+	// if (ph->ph == 1)
+	// 	return (0);
 	while (i++ < ph->ph)
 		pthread_mutex_destroy(&(ph->fork[i]));
 	pthread_mutex_destroy(&(ph->died));
@@ -53,13 +53,13 @@ static int	start(t_ph *ph)
 
 static int	check_data(t_ph *ph)
 {
-	if (ph->ph < 0)
+	if (ph->ph < 0 || ph->ph > 200)
 		return (err_msg(ARG_PH));
-	if (ph->t_die < 0)
+	if (ph->t_die < 60)
 		return (err_msg(ARG_DIE));
-	if (ph->t_eat < 0)
+	if (ph->t_eat < 60)
 		return (err_msg(ARG_EAT));
-	if (ph->t_sleep < 0)
+	if (ph->t_sleep < 60)
 		return (err_msg(ARG_SLEEP));
 	return (0);
 }
