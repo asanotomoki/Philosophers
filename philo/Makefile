@@ -6,7 +6,7 @@
 #    By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 15:38:14 by asanotomoki       #+#    #+#              #
-#    Updated: 2022/11/15 19:07:46 by asanotomoki      ###   ########.fr        #
+#    Updated: 2022/11/15 21:00:11 by asanotomoki      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	:=	philo
 OBJDIR   := ./obj
 SRC_DIR := ./srcs
 CC  := cc
-CFLAGS := -Wall -Werror -Wextra -fsanitize=thread  -g
+CFLAGS := -Wall -Werror -Wextra
 
 HEADERS :=  ./includes
 INCLUDES :=	$(addprefix -I, $(HEADERS))
