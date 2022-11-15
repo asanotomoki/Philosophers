@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:38:09 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 22:37:33 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/15 22:50:39 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ph_mutex_destroy(t_ph *ph)
 	i = -1;
 	if (ph->ph == 1)
 		return (0);
-	while (i++ < ph->ph)
+	while (++i < ph->ph)
 		pthread_mutex_destroy(&(ph->fork[i]));
 	pthread_mutex_destroy(&(ph->died));
 	return (0);

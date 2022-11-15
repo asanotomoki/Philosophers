@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:06:23 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 18:46:30 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/15 22:49:59 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	init_fork(t_ph *ph)
 	return (0);
 }
 
-void	man_set_data(t_ph *ph, t_man *man, int i)
+static int	man_set_data(t_ph *ph, t_man *man, int i)
 {
 	man->ph = ph->ph;
 	man->t_die = ph->t_die;
@@ -44,6 +44,7 @@ void	man_set_data(t_ph *ph, t_man *man, int i)
 	man->must_eat_ph = &(ph->must_eat_ph);
 	man->died = &(ph->died);
 	man->is_finish = &(ph->is_finish);
+	return (0);
 }
 
 int	init_man(t_ph *ph)
