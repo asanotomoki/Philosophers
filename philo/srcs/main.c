@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:38:09 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 22:59:35 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/17 14:20:29 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static int	ph_mutex_destroy(t_ph *ph)
 	int	i;
 
 	i = -1;
-	if (ph->ph == 1)
-		return (0);
 	while (++i < ph->ph)
 		pthread_mutex_destroy(&(ph->fork[i]));
 	pthread_mutex_destroy(&(ph->died));
@@ -53,7 +51,7 @@ static int	start(t_ph *ph)
 
 static int	check_data(t_ph *ph)
 {
-	if (ph->ph < 0 || ph->ph > 200)
+	if (ph->ph <= 0 || ph->ph > 200)
 		return (err_msg(ARG_PH));
 	if (ph->t_die < 60)
 		return (err_msg(ARG_DIE));
@@ -95,7 +93,10 @@ int	main(int argc, char **argv)
 	if (init(&ph))
 		return (1);
 	if (start(&ph))
+	{
+		all_free(&ph);
 		return (1);
+	}
 	ph_mutex_destroy(&ph);
 	all_free(&ph);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:43:16 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 22:18:17 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/17 14:17:31 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,15 @@ ssize_t	ph_atol(const char *str)
 int	all_free(t_ph *ph)
 {
 	if (ph->man)
+	{
 		free(ph->man);
+		ph->man = NULL;
+	}
 	if (ph->fork)
+	{	
 		free(ph->fork);
+		ph->fork = NULL;
+	}
 	return (0);
 }
 

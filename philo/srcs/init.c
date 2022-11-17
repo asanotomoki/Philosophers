@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:06:23 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 22:49:59 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/17 14:14:23 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ static int	init_fork(t_ph *ph)
 		return (err_msg("fork malloc error"));
 	i = -1;
 	while (++i < ph->ph)
-		pthread_mutex_init(&(ph->fork[i]), NULL);
+	{
+		if (pthread_mutex_init(&(ph->fork[i]), NULL))
+			return (err_msg("mutex init error"));
+	}
 	return (0);
 }
 
@@ -66,7 +69,10 @@ int	init_man(t_ph *ph)
 int	init(t_ph *ph)
 {
 	if (init_fork(ph))
+	{
+		all_free(ph);
 		return (1);
+	}
 	if (init_man(ph))
 	{
 		all_free(ph);

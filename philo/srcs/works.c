@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:16:10 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/15 22:38:06 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/17 14:13:12 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ static int	ph_eat(t_man *man)
 
 static int	take_fork(t_man *man)
 {
-	if (check_died(man))
-		return (1);
 	if (man->position % 2)
 		usleep(200);
 	pthread_mutex_lock(man->right);
@@ -55,8 +53,6 @@ static int	take_fork(t_man *man)
 
 static int	ph_sleep(t_man *man)
 {
-	if (check_died(man))
-		return (1);
 	put_msg(man, SLEEP, BLUE);
 	ph_wait(man->t_sleep);
 	return (check_died(man));
@@ -76,6 +72,5 @@ void	*routine(void *ph_man)
 			break ;
 		put_msg(man, THINK, GRAY);
 	}
-	printf("\x1b[0m");
 	return (NULL);
 }
