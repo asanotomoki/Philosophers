@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:06:23 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/17 14:24:37 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/17 14:46:41 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ static int	man_set_data(t_ph *ph, t_man *man, int i)
 	man->t_eat = ph->t_eat;
 	man->t_sleep = ph->t_sleep;
 	man->is_must_eat = ph->is_must_eat;
-	if (ph->is_must_eat)
-		man->must_eat = ph->must_eat;
+	man->must_eat = ph->must_eat;
 	man->right = &ph->fork[i];
 	if (i == ph->ph - 1)
 		man->left = &ph->fork[0];

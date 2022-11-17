@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:38:09 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/17 14:20:29 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/17 14:41:36 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ static int	set_data(int argc, char **argv, t_ph *ph)
 		ph->must_eat = ph_atol(argv[5]);
 		ph->is_must_eat = true;
 	}
+	else
+		ph->must_eat = 0;
 	pthread_mutex_init(&(ph->died), NULL);
 	return (check_data(ph));
 }

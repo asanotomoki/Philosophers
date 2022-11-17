@@ -6,7 +6,7 @@
 /*   By: asanotomoki <asanotomoki@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:05:19 by asanotomoki       #+#    #+#             */
-/*   Updated: 2022/11/17 14:23:14 by asanotomoki      ###   ########.fr       */
+/*   Updated: 2022/11/17 14:46:45 by asanotomoki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define PTHREAD_CREATE	"Don't create pthread"
 # define PTHREAD_JOIN	"Don't join pthread"
 # define MUTEX_INIT		"mutex init error"
-# define PTHREAD_JOIN	"Don't join pthread"
+# define MALLOC_ERR		"malloc error"
 # define PTHREAD_JOIN	"Don't join pthread"
 
 #endif
